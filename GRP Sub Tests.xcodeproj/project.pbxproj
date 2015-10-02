@@ -15,6 +15,9 @@
 		DD53FF001BBF2E1600BE2942 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD53FEFF1BBF2E1600BE2942 /* Assets.xcassets */; };
 		DD53FF031BBF2E1600BE2942 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD53FF011BBF2E1600BE2942 /* LaunchScreen.storyboard */; };
 		DD53FF0E1BBF2E1600BE2942 /* GRP_Sub_TestsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD53FF0D1BBF2E1600BE2942 /* GRP_Sub_TestsTests.m */; };
+		DD53FF191BBF311A00BE2942 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD53FF181BBF311A00BE2942 /* StoreKit.framework */; };
+		DD53FF1C1BBF327B00BE2942 /* StoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD53FF1B1BBF327B00BE2942 /* StoreManager.m */; settings = {ASSET_TAGS = (); }; };
+		DD53FF1D1BBF327B00BE2942 /* StoreManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DD53FF1B1BBF327B00BE2942 /* StoreManager.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +45,9 @@
 		DD53FF091BBF2E1600BE2942 /* GRP Sub TestsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "GRP Sub TestsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD53FF0D1BBF2E1600BE2942 /* GRP_Sub_TestsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GRP_Sub_TestsTests.m; sourceTree = "<group>"; };
 		DD53FF0F1BBF2E1600BE2942 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD53FF181BBF311A00BE2942 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		DD53FF1A1BBF327B00BE2942 /* StoreManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StoreManager.h; sourceTree = "<group>"; };
+		DD53FF1B1BBF327B00BE2942 /* StoreManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StoreManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD53FF191BBF311A00BE2942 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,6 +72,7 @@
 		DD53FEE41BBF2E1600BE2942 = {
 			isa = PBXGroup;
 			children = (
+				DD53FF181BBF311A00BE2942 /* StoreKit.framework */,
 				DD53FEEF1BBF2E1600BE2942 /* GRP Sub Tests */,
 				DD53FF0C1BBF2E1600BE2942 /* GRP Sub TestsTests */,
 				DD53FEEE1BBF2E1600BE2942 /* Products */,
@@ -87,6 +95,8 @@
 				DD53FEF41BBF2E1600BE2942 /* AppDelegate.m */,
 				DD53FEF61BBF2E1600BE2942 /* ViewController.h */,
 				DD53FEF71BBF2E1600BE2942 /* ViewController.m */,
+				DD53FF1A1BBF327B00BE2942 /* StoreManager.h */,
+				DD53FF1B1BBF327B00BE2942 /* StoreManager.m */,
 				DD53FEF91BBF2E1600BE2942 /* Main.storyboard */,
 				DD53FEFF1BBF2E1600BE2942 /* Assets.xcassets */,
 				DD53FF011BBF2E1600BE2942 /* LaunchScreen.storyboard */,
@@ -163,6 +173,12 @@
 				TargetAttributes = {
 					DD53FEEC1BBF2E1600BE2942 = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = J2Y77U9RAN;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					DD53FF081BBF2E1600BE2942 = {
 						CreatedOnToolsVersion = 7.0;
@@ -218,6 +234,7 @@
 				DD53FEF51BBF2E1600BE2942 /* AppDelegate.m in Sources */,
 				DD53FEFE1BBF2E1600BE2942 /* GRP_Sub_Tests.xcdatamodeld in Sources */,
 				DD53FEF21BBF2E1600BE2942 /* main.m in Sources */,
+				DD53FF1C1BBF327B00BE2942 /* StoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -226,6 +243,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD53FF0E1BBF2E1600BE2942 /* GRP_Sub_TestsTests.m in Sources */,
+				DD53FF1D1BBF327B00BE2942 /* StoreManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +363,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Christensen (SMSAKC45Y7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "GRP Sub Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.giantrobotpilot.GRP-Sub-Tests";
@@ -356,6 +376,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Andrew Christensen (SMSAKC45Y7)";
 				INFOPLIST_FILE = "GRP Sub Tests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.giantrobotpilot.GRP-Sub-Tests";

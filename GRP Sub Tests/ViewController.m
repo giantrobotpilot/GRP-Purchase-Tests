@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "StoreManager.h"
 
 @interface ViewController ()
+
+@property (strong, nonatomic) StoreManager *storeManager;
 
 @end
 
@@ -16,7 +19,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    self.storeManager = [[StoreManager alloc] init];
+    [self.storeManager requestProducts];
 }
 
 - (void)didReceiveMemoryWarning {
