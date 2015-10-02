@@ -33,6 +33,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)reloadPressed:(id)sender {
+    self.textView.text = @"";
+    [self.storeManager requestProducts];
+}
+
 #pragma mark - StoreManagerDelegate implementation
 
 - (void)storeManager:(StoreManager *)manager didFoundProducts:(NSArray *)products invalidProductIDs:(NSArray *)invalidIDs
@@ -52,6 +57,7 @@
 
 - (void)storemanager:(StoreManager *)manager requestDidFailWithError:(NSError *)error
 {
+    self.textView.text = @"";
     self.textView.text = [NSString stringWithFormat:@"ERROR:\n%@", error.localizedDescription];
 }
 
