@@ -18,8 +18,10 @@
 
 - (void)requestProducts
 {
-    NSSet *productIDs = [NSSet setWithObjects:@"com.giantrobotpilot.OneYearProPlusTrial",
-                         @"com.giantrobotpilot.OneMonthPro", nil];
+    NSSet *productIDs = [NSSet setWithObjects:
+                         @"com.giantrobotpilot.OneYearProPlusTrial",
+                         @"com.giantrobotpilot.OneMonthPro",
+                         nil];
     self.productsRequest = [[SKProductsRequest alloc] initWithProductIdentifiers:productIDs];
     [self.productsRequest setDelegate:self];
     [self.productsRequest start];
@@ -29,12 +31,11 @@
 
 - (void)productsRequest:(SKProductsRequest *)request didReceiveResponse:(SKProductsResponse *)response
 {
-    if (response.products.count > 0) {
-        NSLog(@"Products: %@", response.products);
+    NSMutableArray *products = [[NSMutableArray alloc] initWithCapacity:response.products.count];
+    for (SKProduct *product in response.products) {
+        [products addObject:[NSString stringWithFormat:@"%@ - %@", product.localizedTitle, product.price]];
     }
-    if (response.invalidProductIdentifiers.count > 0) {
-        NSLog(@"Invalid: %@", response.invalidProductIdentifiers);
-    }
+    [self.delegate storeManager:self didFoundProducts:products invalidProductIDs:response.invalidProductIdentifiers];
 }
 
 #pragma mark - SKRequestDelegate methods
@@ -48,6 +49,7 @@
 {
     NSLog(@"%s", __PRETTY_FUNCTION__);
     NSLog(@"%@", error);
+    [self.delegate storemanager:self requestDidFailWithError:error];
 }
 
 @end
